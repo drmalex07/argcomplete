@@ -164,6 +164,9 @@ completions like you would get in the IPython shell:
     import IPython
     parser.add_argument("--python-name").completer = IPython.core.completer.Completer()
 
+You can also use `argcomplete.CompletionFinder.rl_complete <https://argcomplete.readthedocs.org/en/latest/#argcomplete.CompletionFinder.rl_complete>`_
+to plug your entire argparse parser as a readline completer.
+
 Printing warnings in completers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Normal stdout/stderr output is suspended when argcomplete runs. Sometimes, though, when the user presses ``<TAB>``, it's
@@ -249,7 +252,7 @@ Links
 -----
 * `Project home page (GitHub) <https://github.com/kislyuk/argcomplete>`_
 * `Documentation (Read the Docs) <https://argcomplete.readthedocs.org/en/latest/>`_
-* `Package distribution <https://warehouse.python.org/project/argcomplete/>`_  `(PyPI) <https://pypi.python.org/pypi/argcomplete>`_
+* `Package distribution (PyPI) <https://pypi.python.org/pypi/argcomplete>`_
 
 Bugs
 ~~~~
@@ -261,9 +264,13 @@ Licensed under the terms of the `Apache License, Version 2.0 <http://www.apache.
 
 .. image:: https://travis-ci.org/kislyuk/argcomplete.png
         :target: https://travis-ci.org/kislyuk/argcomplete
-.. image:: https://pypip.in/v/argcomplete/badge.png
-        :target: https://warehouse.python.org/project/argcomplete/
-.. image:: https://pypip.in/d/argcomplete/badge.png
-        :target: https://warehouse.python.org/project/argcomplete/
+.. image:: https://pypip.in/version/argcomplete/badge.svg
+        :target: https://pypi.python.org/pypi/argcomplete
+.. image:: https://pypip.in/download/argcomplete/badge.svg
+        :target: https://pypi.python.org/pypi/argcomplete
+.. image:: https://pypip.in/py_versions/argcomplete/badge.svg
+        :target: https://pypi.python.org/pypi/argcomplete
+.. image:: https://pypip.in/license/argcomplete/badge.svg
+        :target: https://pypi.python.org/pypi/argcomplete
 .. image:: https://readthedocs.org/projects/argcomplete/badge/?version=latest
         :target: https://argcomplete.readthedocs.org/

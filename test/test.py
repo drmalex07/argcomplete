@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function, unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import os, sys, shutil
 
@@ -205,8 +205,8 @@ class TestArgcomplete(unittest.TestCase):
             self.assertEqual(c('def/'), set(['def/baz/']))
             self.assertEqual(c('e'), set([]))
             self.assertEqual(c('def/k'), set([]))
-        return 
-    
+        return
+
     def test_subparsers(self):
         def make_parser():
             parser = argparse.ArgumentParser()
@@ -298,7 +298,7 @@ class TestArgcomplete(unittest.TestCase):
         def get_readline_completions(completer, text):
             completions = []
             for i in range(9999):
-                completion = completer.complete(text, i)
+                completion = completer.rl_complete(text, i)
                 if completion is None:
                     break
                 completions.append(completion)
@@ -326,18 +326,18 @@ class TestArgcomplete(unittest.TestCase):
 
         completer = CompletionFinder(parser)
 
-        completer.complete('', 0)
+        completer.rl_complete('', 0)
         disp = completer.get_display_completions()
         self.assertEqual('help for rover ', disp.get('spirit', ''))
         self.assertEqual('help for rover ', disp.get('sojourner', ''))
         self.assertEqual('', disp.get('low gain', ''))
 
-        completer.complete('opportunity "low gain" list ', 0)
+        completer.rl_complete('opportunity "low gain" list ', 0)
         disp = completer.get_display_completions()
         self.assertEqual('ttt', disp.get('-o --oh', ''))
         self.assertEqual('list cat', disp.get('cat', ''))
 
-        completer.complete('opportunity low\\ gain list --', 0)
+        completer.rl_complete('opportunity low\\ gain list --', 0)
         disp = completer.get_display_completions()
         self.assertEqual('ttt', disp.get('--oh', ''))
         self.assertEqual('ccc', disp.get('--ch', ''))
@@ -371,9 +371,7 @@ class TestArgcompleteREPL(unittest.TestCase):
         pass
 
     def run_completer(self, parser, completer, command, point=None, **kwargs):
-
-        (cword_prequote, cword_prefix, cword_suffix,
-         comp_words, first_colon_pos) = split_line(command)
+        cword_prequote, cword_prefix, cword_suffix, comp_words, first_colon_pos = split_line(command)
 
         comp_words.insert(0, sys.argv[0])
 
@@ -383,7 +381,6 @@ class TestArgcompleteREPL(unittest.TestCase):
         return completions
 
     def test_repl_multiple_complete(self):
-
         p = ArgumentParser()
         p.add_argument("--foo")
         p.add_argument("--bar")
@@ -397,7 +394,6 @@ class TestArgcompleteREPL(unittest.TestCase):
         assert(set(completions) == set(['--help', '--foo', '--bar']))
 
     def test_repl_parse_after_complete(self):
-
         p = ArgumentParser()
         p.add_argument("--foo")
         p.add_argument("--bar")
@@ -411,7 +407,6 @@ class TestArgcompleteREPL(unittest.TestCase):
         assert(args.foo == "spam")
 
     def test_repl_subcommand(self):
-
         p = ArgumentParser()
         p.add_argument("--foo")
         p.add_argument("--bar")

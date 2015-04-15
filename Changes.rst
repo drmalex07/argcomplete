@@ -1,3 +1,17 @@
+Version 0.8.7 (2015-04-11)
+--------------------------
+- register-python-argcomplete: add option to avoid default readline completion. Thanks to @drmalex07 (pull request #99).
+
+Version 0.8.6 (2015-04-11)
+--------------------------
+- Expand tilde in script name, allowing argcomplete to work when invoking scripts from one's home directory. Thanks to @VorpalBlade (Issue 104).
+
+Version 0.8.5 (2015-04-07)
+--------------------------
+- Fix issues related to using argcomplete in a REPL environement.
+- New helper method for custom completion display.
+- Expand test suite; formatting cleanup.
+
 Version 0.8.4 (2014-12-11)
 --------------------------
 - Fix issue related to using argcomplete in a REPL environement. Thanks to @wapiflapi (pull request #91).
